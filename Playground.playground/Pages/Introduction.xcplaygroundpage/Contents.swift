@@ -7,8 +7,8 @@
  
  Set the size of your desired canvas by adjusting the constants on lines 10 and 11.
  */
-let preferredWidth = 300
-let preferredHeight = 600
+let preferredWidth = 480
+let preferredHeight = 480
 /*:
  ## Required code
  
@@ -34,22 +34,23 @@ PlaygroundPage.current.liveView = canvas
  
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
  */
+//Draw the grid
+canvas.drawAxes(withScale: true,
+                by: 20,
+                color: Color.black)
 
-// Replace this comment with your first comment – what is the goal of the code you're about to write?
-canvas.drawRectangle(at: Point(x: 50, y: 75), width: 100, height: 200)
+//Draw the outline of the head
+canvas.drawShapesWithFill = false
+canvas.drawEllipse(at: Point(x: 240, y: 240), width: 250, height: 250)
 
-/*:
- ## Show the Assistant Editor
- Don't see any results?
- 
- Remember to show the Assistant Editor (1), and then switch to Live View (2):
- 
- ![timeline](timeline.png "Timeline")
+//Draw the left eye
+canvas.drawEllipse(at: Point(x: 185, y: 280), width: 50, height: 50)
 
- ## Use source control
- To keep your work organized, receive feedback, and earn a high grade in this course, regular use of source control is a must.
- 
- Please commit and push your work often.
- 
- ![source_control](source-control.png "Source Control")
- */
+//Draw the right eye
+canvas.drawEllipse(at: Point(x: 280, y: 280), width: 50, height: 50)
+
+//Draw the nose
+canvas.drawEllipse(at: Point(x: 230, y: 230), width: 75, height: 40)
+
+//Draw the mouth under the nose
+
