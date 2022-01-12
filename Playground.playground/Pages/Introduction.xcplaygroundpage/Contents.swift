@@ -34,23 +34,46 @@ PlaygroundPage.current.liveView = canvas
  
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
  */
+
 //Draw the grid
 canvas.drawAxes(withScale: true,
                 by: 20,
                 color: Color.black)
 
-//Draw the outline of the head
-canvas.drawShapesWithFill = false
+
+
+
+// Turn off fill
+canvas.drawShapesWithFill = true
+
+// Draw Left Ear
+
+canvas.drawEllipse(at: Point(x: 160, y: 340), width: 60, height: 70)
+
+// Draw Right Ear
+canvas.drawEllipse(at: Point(x: 320, y: 340), width: 60, height: 70)
+
+// draw head
+canvas.fillColor = .white
 canvas.drawEllipse(at: Point(x: 240, y: 240), width: 250, height: 250)
 
 //Draw the left eye
+canvas.fillColor = .black
 canvas.drawEllipse(at: Point(x: 185, y: 280), width: 50, height: 50)
 
 //Draw the right eye
-canvas.drawEllipse(at: Point(x: 280, y: 280), width: 50, height: 50)
+canvas.drawEllipse(at: Point(x: 290, y: 280), width: 50, height: 50)
 
 //Draw the nose
-canvas.drawEllipse(at: Point(x: 230, y: 230), width: 75, height: 40)
+canvas.drawEllipse(at: Point(x: 240, y: 230), width: 50, height: 40)
 
 //Draw the mouth under the nose
+canvas.drawLine(from: Point(x: 200, y: 180), to: Point(x: 280, y: 180))
+
+//draw right puplie
+canvas.fillColor = .white
+canvas.drawEllipse(at: Point(x:  , y: <#T##Int#>), width: <#T##Int#>, height: <#T##Int#>)
+
+
+
 
