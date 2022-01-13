@@ -35,25 +35,21 @@ PlaygroundPage.current.liveView = canvas
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
  */
 
-//Draw the grid
-canvas.drawAxes(withScale: true,
-                by: 20,
-                color: Color.black)
-
-
-
+// Draw Background
+canvas.fillColor = .blue
+canvas.drawRectangle(at: Point(x: 0, y: 0), width: 500, height: 500)
 
 // Turn off fill
 canvas.drawShapesWithFill = true
 
 // Draw Left Ear
-
+canvas.fillColor = .black
 canvas.drawEllipse(at: Point(x: 160, y: 340), width: 60, height: 70)
 
 // Draw Right Ear
 canvas.drawEllipse(at: Point(x: 320, y: 340), width: 60, height: 70)
 
-// draw head
+//Draw head
 canvas.fillColor = .white
 canvas.drawEllipse(at: Point(x: 240, y: 240), width: 250, height: 250)
 
@@ -70,10 +66,14 @@ canvas.drawEllipse(at: Point(x: 240, y: 230), width: 50, height: 40)
 //Draw the mouth under the nose
 canvas.drawLine(from: Point(x: 200, y: 180), to: Point(x: 280, y: 180))
 
-//draw right puplie
+//Draw puplie
 canvas.fillColor = .white
-canvas.drawEllipse(at: Point(x:  , y: <#T##Int#>), width: <#T##Int#>, height: <#T##Int#>)
+canvas.drawEllipse(at: Point(x: 195, y: 270), width: 15, height: 20)
 
+//Draw right eye
+canvas.drawEllipse(at: Point(x: 280, y: 272), width: 15, height: 20)
 
+// Draw Panda Body
+canvas.drawEllipse(at: Point(x: 240, y: 10), width: 340, height: 210)
 
 
