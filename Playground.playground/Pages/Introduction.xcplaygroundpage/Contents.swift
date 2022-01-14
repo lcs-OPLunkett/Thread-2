@@ -34,6 +34,8 @@ PlaygroundPage.current.liveView = canvas
  
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
  */
+//Turn on High Profomance mode
+canvas.highPerformance = true
 
 // Draw Background
 canvas.fillColor = .blue
@@ -74,6 +76,8 @@ canvas.drawEllipse(at: Point(x: 195, y: 270), width: 15, height: 20)
 canvas.drawEllipse(at: Point(x: 280, y: 272), width: 15, height: 20)
 
 // Draw Panda Body
-canvas.drawEllipse(at: Point(x: 240, y: 10), width: 340, height: 210)
+canvas.drawEllipse(at: Point(x: 240, y: 10), width: 340, height:
+210)
 
-
+//Turn off Hight Proformance mode
+canvas.highPerformance = false
