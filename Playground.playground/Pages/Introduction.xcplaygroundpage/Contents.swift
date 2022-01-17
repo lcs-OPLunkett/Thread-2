@@ -37,10 +37,24 @@ PlaygroundPage.current.liveView = canvas
 //Turn on High Profomance mode
 canvas.highPerformance = true
 
-// Draw Background
-canvas.fillColor = .blue
-canvas.drawRectangle(at: Point(x: 0, y: 0), width: 500, height: 500)
-
+//gradient for window
+for value in stride(from: 0, through: 480, by: 1) {
+    
+    // Change the "value" to a value in a different range
+    let currentHue = map(value: Double(value), fromLower: 0.0, fromUpper: 480.0, toLower: 0.0, toUpper: 60.0)
+    
+    // Create a new color
+    let currentColor = Color(hue: Int(currentHue), saturation: 80, brightness: 90, alpha: 100)
+    
+    // Set the line color
+    canvas.lineColor = currentColor
+    
+    // Draw the line
+    canvas.drawLine(from: Point(x: 0, y: value),
+                    to: Point(x: 480, y: value))
+    
+}
+canvas.lineColor = .black
 // Turn off fill
 canvas.drawShapesWithFill = true
 
@@ -66,9 +80,10 @@ canvas.drawEllipse(at: Point(x: 290, y: 280), width: 50, height: 50)
 canvas.drawEllipse(at: Point(x: 240, y: 230), width: 50, height: 40)
 
 //Draw the mouth under the nose
+canvas.fillColor = .black
 canvas.drawLine(from: Point(x: 200, y: 180), to: Point(x: 280, y: 180))
 
-//Draw puplie
+//Draw left eye
 canvas.fillColor = .white
 canvas.drawEllipse(at: Point(x: 195, y: 270), width: 15, height: 20)
 
