@@ -4,7 +4,7 @@
  
  Set the size of your desired canvas by adjusting the constants on lines 7 and 8.
  */
-let preferredWidth = 600
+let preferredWidth = 400
 let preferredHeight = 600
 /*:
  ## Required code
@@ -29,23 +29,10 @@ let p = Pen(drawingUpon: canvas)
 // Show the canvas in the playground's live view
 PlaygroundPage.current.liveView = canvas
 
-/*:
- ## Optional code
- 
- Below are two generally helpful configurations.
- 
- If you do not wish to work in all four quadrants of the Cartesian plane, comment out the code on line 44.
- 
- If you do not wish to see a grid, comment out the code on line 48.
- 
- */
 
-// Move the origin from the bottom-left corner of the canvas to it's centre point
-canvas.translate(to: Point(x: canvas.width / 2,
-                           y: canvas.height / 2))
 
 // Show a grid
-canvas.drawAxes(withScale: true, by: 20, color: .black)
+canvas.drawAxes(withScale: true, by: 50, color: .black)
 
 /*:
  ## Add your code
@@ -55,24 +42,47 @@ canvas.drawAxes(withScale: true, by: 20, color: .black)
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
 
  */
+let lightBlue = Color(hue: 193, saturation: 99, brightness: 86, alpha: 100)
 
-// Begin writing your code below (you can remove the examples shown)
+let pink = Color(hue: 312, saturation: 63, brightness: 66, alpha: 100)
+// background colour
+canvas.fillColor = lightBlue
+canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
+// Show a grid
+canvas.drawAxes(withScale: true, by: 50, color: .black)
 
-// Draw a circle, using the canvas object directly
-canvas.drawEllipse(at: Point(x: 100, y: 100), width: 25, height: 25)
+//white circles
+for someValue in stride(from: 40, through: 400, by: 50){
+    canvas.drawShapesWithFill = false
+    canvas.drawShapesWithBorders = true
+    canvas.borderColor = .white
+    canvas.defaultBorderWidth = 12
+    canvas.drawEllipse(at: Point(x: 200, y: 400), width: 400 - someValue, height: 400 - someValue)
+}
 
-// Draw a vertical line, up and to the left
-p.drawTo(dx: -25, dy: 50)
+for someValue in stride(from: 40, through: 400, by: 50){
+    canvas.drawShapesWithFill = false
+    canvas.drawShapesWithBorders = true
+    canvas.borderColor = pink
+    canvas.defaultBorderWidth = 12
+    canvas.drawEllipse(at: Point(x: 200, y: 500), width: 400 - someValue, height: 400 - someValue)
+}
 
-// Go back to origin
-p.goToOrigin()
 
-// Change the pen color
-p.penColor = .red
 
-// Draw a curve, down and to the right
-p.addArc(radius: 50, angle: -45)
 
+// draw text
+
+canvas.drawText(message: "superdrag", at: Point(x: 20, y: 88), size: 48)
+canvas.drawText(message: "with", at: Point(x: 25, y: 48), size: 8)
+canvas.drawText(message: "the shambles", at: Point(x: 25, y: 38), size: 8)
+canvas.drawText(message: "and lifter", at: Point(x: 25, y: 28), size: 8)
+canvas.drawText(message: "thursday", at: Point(x: 118, y: 48), size: 8)
+canvas.drawText(message: "june 13 1996/ 8:30", at: Point(x: 118, y: 38), size: 8)
+canvas.drawText(message: "no age limit", at: Point(x: 118, y: 28), size: 8)
+canvas.drawText(message: "at brick by brick", at: Point(x: 298, y: 48), size: 8)
+canvas.drawText(message: "1130 buenos avenue", at: Point(x: 298, y: 38), size: 8)
+canvas.drawText(message: "san diego, ca", at: Point(x: 298, y: 28), size: 8)
 /*:
  ## Show the Live View
  Don't see any results?
