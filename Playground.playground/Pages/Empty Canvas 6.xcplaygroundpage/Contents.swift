@@ -1,9 +1,3 @@
-//: [Previous](@previous) / [Next](@next)
-/*:
-## Canvas size
- 
- Set the size of your desired canvas by adjusting the constants on lines 7 and 8.
- */
 let preferredWidth = 600
 let preferredHeight = 600
 /*:
@@ -18,7 +12,7 @@ import PlaygroundSupport
 import CanvasGraphics
 
 // Create canvas
-let canvas = Canvas(width: preferredWidth, height: preferredHeight)
+let canvas = Canvas(width: 400, height: 600)
 
 // Create a turtle that can draw upon the canvas
 let turtle = Tortoise(drawingUpon: canvas)
@@ -29,62 +23,50 @@ let p = Pen(drawingUpon: canvas)
 // Show the canvas in the playground's live view
 PlaygroundPage.current.liveView = canvas
 
-/*:
- ## Optional code
- 
- Below are two generally helpful configurations.
- 
- If you do not wish to work in all four quadrants of the Cartesian plane, comment out the code on line 44.
- 
- If you do not wish to see a grid, comment out the code on line 48.
- 
- */
+canvas.highPerformance = true
+//Colour
+let paleGreen = Color(hue: 107, saturation: 63, brightness: 75, alpha: 100)
+let offWhite = Color(hue: 87, saturation: 5, brightness: 88, alpha: 100)
+//Background
+canvas.fillColor = paleGreen
+canvas.drawShapesWithFill = true
+canvas.drawRectangle(at: Point (x: -10, y: -10), width: 500, height: 700)
+canvas.fillColor = .black
+canvas.drawRectangle(at: Point (x: 0, y: 0), width: 400, height: 400)
+//Circles
+for vertical in stride(from: 0, through: 400, by: 40) {
+    for horizontal in stride(from: 0, through: 400, by: 40) {
+        if horizontal + vertical <= 400 {
+            canvas.fillColor = offWhite
+        }
+        
+        else {
+            canvas.fillColor = paleGreen
+        }
+        canvas.drawEllipse(at: Point (x: horizontal, y: vertical), width: 35, height: 35)
+        canvas.fillColor = paleGreen
+        canvas.drawEllipse(at: Point (x: horizontal, y: 0), width: 35, height: 35)
+        canvas.drawEllipse(at: Point (x: 0, y: vertical), width: 35, height: 35)
+    }
+}
 
-// Move the origin from the bottom-left corner of the canvas to it's centre point
-canvas.translate(to: Point(x: canvas.width / 2,
-                           y: canvas.height / 2))
 
-// Show a grid
-canvas.drawAxes(withScale: true, by: 20, color: .black)
+// draw text
+canvas.textColor = .black
+canvas.drawText(message: "pixies", at: Point(x: 10, y: 405), size: 72 , kerning: 0)
+canvas.textColor = .white
+canvas.drawText(message: "with", at: Point(x: 280, y: 460), size: 15, kerning: 0)
+canvas.drawText(message: "throwing muses", at: Point(x: 280, y: 440), size: 15, kerning: 0)
+canvas.drawText(message: "big dipper", at: Point(x: 280, y: 420), size: 15, kerning: 0)
 
-/*:
- ## Add your code
- 
- Beginning on line 61, you can add your own code.
-  
- [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
+canvas.textColor = .black
+canvas.drawText(message: "saturday", at: Point(x: 13, y: 550), size: 12, kerning: 0)
+canvas.drawText(message: "december 13 1986", at: Point(x: 13, y: 535), size: 12, kerning: 0)
+canvas.drawText(message: "9 pm over 21", at: Point(x: 13, y: 520), size: 12, kerning: 0)
 
- */
+canvas.drawText(message: "at the rat", at: Point(x: 278, y: 555), size: 12, kerning: 0)
+canvas.drawText(message: "528 commonwealth", at: Point(x: 278, y: 535), size: 12, kerning: 0)
+canvas.drawText(message: "boston, mass.", at: Point(x: 278, y: 515), size: 12, kerning: 0)
 
-// Begin writing your code below (you can remove the examples shown)
+canvas.highPerformance = false
 
-// Draw a circle, using the canvas object directly
-canvas.drawEllipse(at: Point(x: 100, y: 100), width: 25, height: 25)
-
-// Draw a vertical line, up and to the left
-p.drawTo(dx: -25, dy: 50)
-
-// Go back to origin
-p.goToOrigin()
-
-// Change the pen color
-p.penColor = .red
-
-// Draw a curve, down and to the right
-p.addArc(radius: 50, angle: -45)
-
-/*:
- ## Show the Live View
- Don't see any results?
- 
- Remember to show the Live View (1 then 2):
- 
- ![timeline](timeline.png "Timeline")
-
- ## Use source control
- To keep your work organized, receive feedback, and earn a high grade in this course, regular use of source control is a must.
- 
- Please commit and push your work often.
- 
- ![source_control](source-control.png "Source Control")
- */

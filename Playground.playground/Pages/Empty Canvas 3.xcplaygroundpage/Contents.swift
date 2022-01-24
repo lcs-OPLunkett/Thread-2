@@ -48,8 +48,7 @@ let pink = Color(hue: 312, saturation: 63, brightness: 66, alpha: 100)
 // background colour
 canvas.fillColor = lightBlue
 canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
-// Show a grid
-canvas.drawAxes(withScale: true, by: 50, color: .black)
+
 
 //white circles
 for someValue in stride(from: 40, through: 400, by: 50){
