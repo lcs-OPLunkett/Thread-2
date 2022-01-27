@@ -1,10 +1,10 @@
 //: [Previous](@previous) / [Next](@next)
 /*:
-## Canvas size
+ ## Canvas size
  
  Set the size of your desired canvas by adjusting the constants on lines 7 and 8.
  */
-let preferredWidth = 600
+let preferredWidth = 400
 let preferredHeight = 600
 /*:
  ## Required code
@@ -16,6 +16,8 @@ let preferredHeight = 600
 import Cocoa
 import PlaygroundSupport
 import CanvasGraphics
+import Foundation
+import AppKit
 
 // Create canvas
 let canvas = Canvas(width: preferredWidth, height: preferredHeight)
@@ -40,51 +42,76 @@ PlaygroundPage.current.liveView = canvas
  
  */
 
-// Move the origin from the bottom-left corner of the canvas to it's centre point
-canvas.translate(to: Point(x: canvas.width / 2,
-                           y: canvas.height / 2))
 
-// Show a grid
-canvas.drawAxes(withScale: true, by: 20, color: .black)
+
+
 
 /*:
  ## Add your code
  
  Beginning on line 61, you can add your own code.
-  
+ 
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
-
+ 
  */
+//Create new colors
 
-// Begin writing your code below (you can remove the examples shown)
+let neworange = Color(hue: 17, saturation: 95, brightness: 95, alpha: 100)
 
-// Draw a circle, using the canvas object directly
-canvas.drawEllipse(at: Point(x: 100, y: 100), width: 25, height: 25)
+let palewhhite = Color(hue: 79, saturation: 5, brightness: 88, alpha: 100)
 
-// Draw a vertical line, up and to the left
-p.drawTo(dx: -25, dy: 50)
+let newyellow = Color(hue: 49, saturation: 100, brightness: 100, alpha: 100)
 
-// Go back to origin
-p.goToOrigin()
+//Create Background
 
-// Change the pen color
-p.penColor = .red
+canvas.fillColor = neworange// Show a grid
+canvas.drawAxes(withScale: true, by: 50, color: .black)
+canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 
-// Draw a curve, down and to the right
-p.addArc(radius: 50, angle: -45)
+//Express pattern for grid
 
-/*:
- ## Show the Live View
- Don't see any results?
- 
- Remember to show the Live View (1 then 2):
- 
- ![timeline](timeline.png "Timeline")
+for vertical in stride(from: 244.444, through: 600, by: 44.44){
+    for horizontal in stride(from: 0, through: 400 , by: 44.44){
+        
+        
+        //Draw yellow triangles
+       
+        canvas.fillColor = newyellow
+        var Triangle: [Point] = []
+        Triangle.append(Point(x: horizontal - 44.44444, y: vertical - 44.44444 ))
+        Triangle.append(Point(x: horizontal - 0, y: vertical - 44.4444))
+        Triangle.append(Point(x: horizontal - 0, y: vertical - 0))
+        canvas.drawCustomShape(with: Triangle)
+        
+        
+        
+        
+        //Draw white triangles
+        
+        if vertical - horizontal <= 240 {
+            canvas.fillColor = newyellow
+        }
+        else {
+            canvas.fillColor = palewhhite
+        }
+        canvas.drawCustomShape(with: Triangle)
+    }
+    
+    
+    
+}
 
- ## Use source control
- To keep your work organized, receive feedback, and earn a high grade in this course, regular use of source control is a must.
- 
- Please commit and push your work often.
- 
- ![source_control](source-control.png "Source Control")
- */
+
+
+//Draw the custom figure
+
+canvas.drawAxes(withScale: true, by: 50, color: .black)
+
+
+//Draw text
+canvas.textColor = .white
+canvas.drawText(message: "talking heads", at: Point(x: 20, y: 140), size: 40, kerning: 0)
+canvas.drawText(message: "friday, saturday, sunday", at: Point(x: 20, y: 35), size: 8, kerning: 0)
+canvas.drawText(message: "september 12, 13, 14, 1975", at: Point(x: 20, y: 20), size: 8, kerning: 0)
+canvas.drawText(message: "at cbgb and omfug", at: Point(x: 175, y: 35), size: 8, kerning: 0)
+canvas.drawText(message: "315 bowery, new york city", at: Point(x: 175, y: 20), size: 8, kerning: 0)
