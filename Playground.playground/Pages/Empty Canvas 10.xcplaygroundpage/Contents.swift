@@ -55,17 +55,22 @@ canvas.drawAxes(withScale: true, by: 50, color: .blue)
  */
 canvas.highPerformance = true
 
+
+
+
 //Create drak blue colour
 let darkBlue = Color(hue: 240, saturation: 100, brightness: 55, alpha: 100)
 
 
-for _ in stride(from: 0, through: 600, by: 200){
+for Vertical in stride(from: 0, through: 600, by: 200){
     for horizonal in stride(from: 0, through: 400, by: 100){
         
-        canvas.drawLine(from: Point(x: 0, y: 0), to: Point(x: horizonal + 50, y: 100))
-    }
+        canvas.drawLine(from: Point(x: 0, y: 0), to: Point(x: 50, y: 100))
+        canvas.drawLine(from: Point(x: 50, y: 100), to: Point(x: 100, y: 0))
+        canvas.drawLine(from: Point(x: 0, y: 200), to: Point(x: 50, y: 100))
+        canvas.drawLine(from: Point(x: 50, y: 100), to: Point(x: 100, y: 200))
 }
-
+}
 canvas.highPerformance = false
 
 
