@@ -42,8 +42,8 @@ PlaygroundPage.current.liveView = canvas
 
 
 
-// Show a grid
-canvas.drawAxes(withScale: true, by: 50, color: .blue)
+canvas.fillColor = .black
+canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 
 /*:
  ## Add your code
@@ -55,28 +55,87 @@ canvas.drawAxes(withScale: true, by: 50, color: .blue)
  */
 canvas.highPerformance = true
 
-
-
-
 //Create drak blue colour
 let darkBlue = Color(hue: 240, saturation: 100, brightness: 55, alpha: 100)
+//
+////gradient for window
+//for value in stride(from: 0, through: 480, by: 1) {
+//
+//    canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
+//
+//    // Change the "value" to a value in a different range
+//    let currentHue = map(value: Double(value), fromLower: 0.0, fromUpper: 480.0, toLower: 0.0, toUpper: 60.0)
+//
+//    // Create a new color
+//    let currentColor = Color(hue: Int(currentHue), saturation: 80, brightness: 90, alpha: 100)
+//
+//    // Set the line color
+//    canvas.lineColor = currentColor
+//
+//
+//}
 
 
-for Vertical in stride(from: 0, through: 600, by: 200){
-    for horizonal in stride(from: 0, through: 400, by: 100){
-        
-        canvas.drawLine(from: Point(x: 0, y: 0), to: Point(x: 50, y: 100))
-        canvas.drawLine(from: Point(x: 50, y: 100), to: Point(x: 100, y: 0))
-        canvas.drawLine(from: Point(x: 0, y: 200), to: Point(x: 50, y: 100))
-        canvas.drawLine(from: Point(x: 50, y: 100), to: Point(x: 100, y: 200))
-}
-}
+
+//for _ in stride(from: 0, through: 600, by: 200){
+//    for _ in stride(from: 0, through: 400, by: 100){
+//
+//
+//    }
+//}
+// Draw left row of Triangles (left to right)
+// Repete of 50 and 0 in from line of code
+canvas.drawLine(from: Point(x: 0, y: 0), to: Point(x: 50, y: 100))
+canvas.drawLine(from: Point(x: 50, y: 100), to: Point(x: 100, y: 0))
+canvas.drawLine(from: Point(x: 0, y: 200), to: Point(x: 50, y: 100))
+canvas.drawLine(from: Point(x: 50, y: 100), to: Point(x: 100, y: 200))
+canvas.drawLine(from: Point(x: 0, y: 200), to: Point(x: 50, y: 300))
+canvas.drawLine(from: Point(x: 50, y: 300), to: Point(x: 100, y: 200))
+canvas.drawLine(from: Point(x:0, y: 400), to: Point(x: 50, y: 300))
+canvas.drawLine(from: Point(x: 50, y: 300), to: Point(x: 100, y: 400))
+canvas.drawLine(from: Point(x: 0, y: 400), to: Point(x: 100, y: 400))
+
+
+// Draw second row of Triangles
+
+canvas.drawLine(from: Point(x: 150, y: 100), to: Point(x: 100, y: 0))
+canvas.drawLine(from: Point(x: 200, y: 0), to: Point(x: 150, y: 100))
+canvas.drawLine(from: Point(x: 100, y: 200), to: Point(x: 150, y: 100))
+canvas.drawLine(from: Point(x: 150, y: 100), to: Point(x: 200, y: 200))
+canvas.drawLine(from: Point(x: 150, y: 300), to: Point(x: 200, y: 200))
+canvas.drawLine(from: Point(x: 100, y: 200), to: Point(x: 150, y: 300))
+canvas.drawLine(from: Point(x: 100, y: 400), to: Point(x: 150, y: 300))
+canvas.drawLine(from: Point(x: 150, y: 300), to: Point(x: 200, y: 400))
+
+
+
+//Draw third line of Triangles
+
+
+
+
+
+
+
+
+
+// Draw top line
+
+canvas.drawLine(from: Point(x: 0, y: 400), to: Point(x: 400, y: 400))
+
+
+
+
+
+
+
 canvas.highPerformance = false
 
 
 
 
-
+// Show a grid
+canvas.drawAxes(withScale: true, by: 50, color: .blue)
 /*:
  ## Show the Live View
  Don't see any results?
