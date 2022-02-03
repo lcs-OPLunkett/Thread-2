@@ -46,6 +46,7 @@ canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 
 //Create dark blue colour
 let darkBlue = Color(hue: 240, saturation: 100, brightness: 55, alpha: 100)
+let darkBlue2 = Color(hue: 240, saturation: 100, brightness: 35, alpha: 100)
 
 // Draw top line
 canvas.drawLine(from: Point(x: 0, y: 400), to: Point(x: 400, y: 400))
@@ -57,35 +58,41 @@ canvas.fillColor = darkBlue
 for xpositionTriangle1 in stride(from: 0, through: 400, by: 100) {
     for ypositionTriangle1 in stride(from: 100, through: 400, by: 200) {
         
-        var Triangle1: [Point] = []
-        Triangle1.append(Point(x: xpositionTriangle1 + 50, y: ypositionTriangle1 + 0))
-        Triangle1.append(Point(x: xpositionTriangle1 + 0, y: ypositionTriangle1 + 100))
-        Triangle1.append(Point(x: xpositionTriangle1 + 0 + 100, y: ypositionTriangle1 + 100))
-        canvas.drawCustomShape(with: Triangle1)
+        var triangle1: [Point] = []
+        triangle1.append(Point(x: xpositionTriangle1 + 50, y: ypositionTriangle1 + 0))
+        triangle1.append(Point(x: xpositionTriangle1 + 0, y: ypositionTriangle1 + 100))
+        triangle1.append(Point(x: xpositionTriangle1 + 100, y: ypositionTriangle1 + 100))
+        canvas.drawCustomShape(with: triangle1)
         
     }
 }
 
 // Draw second set of triangles
-
+canvas.fillColor = darkBlue
 for xpositionTriangle2 in stride(from: 0, through: 400, by: 100) {
     for ypositionTriangle2 in stride(from: 0, through: 300, by: 200) {
         
-        var Triangle2: [Point] = []
-        Triangle2.append(Point(x: xpositionTriangle2 + 0, y: ypositionTriangle2 + 0))
-        Triangle2.append(Point(x: xpositionTriangle2 + 50, y: ypositionTriangle2 + 100))
-        Triangle2.append(Point(x: xpositionTriangle2 + 100, y: ypositionTriangle2 + 0))
-        canvas.drawCustomShape(with: Triangle2)
+        var triangle2: [Point] = []
+        triangle2.append(Point(x: xpositionTriangle2 + 0, y: ypositionTriangle2 + 0))
+        triangle2.append(Point(x: xpositionTriangle2 + 50, y: ypositionTriangle2 + 100))
+        triangle2.append(Point(x: xpositionTriangle2 + 100, y: ypositionTriangle2 + 0))
+        canvas.drawCustomShape(with: triangle2)
         
     }
 }
 
 // Write Fivio Foreign
-canvas.lineColor = darkBlue
-canvas.drawText(message: "Fivio Foreign", at: Point(x: 25, y: 437), size: 10, kerning: 5)
+canvas.textColor = .white
+canvas.drawText(message: "Fivio Foreign", at: Point(x: 50, y: 427), size: 35, kerning: 0)
 
+// Write the location of concert
+canvas.drawText(message: "Barclays Centre", at: Point(x: 50, y: 555), size: 8, kerning: 0)
 
+// Write the state and city
+canvas.drawText(message: "New York, NY", at: Point(x: 100, y: 535), size: 8, kerning: 0)
 
+// Write the Date of concert
+canvas.drawText(message: "Dec 13, 2019", at: Point(x: 150, y: 515), size: 8, kerning: 0)
 
 // Show a grid
 canvas.drawAxes(withScale: true, by: 50, color: .blue)
