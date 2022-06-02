@@ -53,7 +53,7 @@ canvas.drawAxes(withScale: true, by: 20, color: .black)
 
  */
 let scale = 20
-
+let diagnol = Int(sqrt(2)*Double(scale))
 
 t.drawSelf()
 t.penUp()
@@ -65,9 +65,9 @@ t.forward(steps: 3*scale)
 t.right(by: 90)
 t.forward(steps: 1*scale)
 t.left(by: 135)
-t.forward(steps: 2*scale)
+t.forward(steps: 2*diagnol)
 t.left(by: 90)
-t.forward(steps: 2*scale)
+t.forward(steps: 2*diagnol)
 t.left(by: 135)
 t.forward(steps: 1*scale)
 t.right(by: 90)
