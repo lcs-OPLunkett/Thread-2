@@ -46,7 +46,6 @@ canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 
 //Create dark blue colour
 let darkBlue = Color(hue: 240, saturation: 100, brightness: 55, alpha: 100)
-let darkBlue2 = Color(hue: 240, saturation: 100, brightness: 35, alpha: 100)
 
 // Draw top line
 canvas.drawLine(from: Point(x: 0, y: 400), to: Point(x: 400, y: 400))
@@ -68,7 +67,6 @@ for xpositionTriangle1 in stride(from: 0, through: 400, by: 100) {
 }
 
 // Draw second set of triangles
-canvas.fillColor = darkBlue
 for xpositionTriangle2 in stride(from: 0, through: 400, by: 100) {
     for ypositionTriangle2 in stride(from: 0, through: 300, by: 200) {
         
@@ -94,8 +92,8 @@ canvas.drawText(message: "New York, NY", at: Point(x: 100, y: 535), size: 8, ker
 // Write the Date of concert
 canvas.drawText(message: "Dec 13, 2019", at: Point(x: 150, y: 515), size: 8, kerning: 0)
 
-// Show a grid
-canvas.drawAxes(withScale: true, by: 50, color: .blue)
+//// Show a grid
+//canvas.drawAxes(withScale: true, by: 50, color: .blue)
 /*:
  ## Show the Live View
  Don't see any results?

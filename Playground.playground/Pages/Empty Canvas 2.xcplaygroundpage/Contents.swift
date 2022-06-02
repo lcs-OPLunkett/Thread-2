@@ -4,8 +4,7 @@
  
  Set the size of your desired canvas by adjusting the constants on lines 7 and 8.
  */
-let preferredWidth = 400
-let preferredHeight = 400
+
 /*:
  ## Required code
  
@@ -24,6 +23,8 @@ let preferredHeight = 400
 // Create canvas
 let canvas = Canvas(width: preferredWidth, height: preferredHeight)
 
+let t =  Tortoise(drawingUpon: canvas)
+
 // Show the canvas in the playground's live view
 PlaygroundPage.current.liveView = canvas
 
@@ -37,11 +38,11 @@ PlaygroundPage.current.liveView = canvas
  If you do not wish to see a grid, comment out the code on line 48.
  
  */
-
+canvas.translate(to: Point(x: 100, y: 100))
 
 
 // Show a grid
-canvas.drawAxes(withScale: true, by: 50, color: .black)
+canvas.drawAxes(withScale: true, by: 20, color: .black)
 
 /*:
  ## Add your code
@@ -51,6 +52,29 @@ canvas.drawAxes(withScale: true, by: 50, color: .black)
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
 
  */
+let scale = 20
+
+
+t.drawSelf()
+t.penUp()
+t.left(by: 90)
+t.forward(steps: 1*scale)
+t.right(by: 90)
+t.penDown()
+t.forward(steps: 3*scale)
+t.right(by: 90)
+t.forward(steps: 1*scale)
+t.left(by: 135)
+t.forward(steps: 2*scale)
+t.left(by: 90)
+t.forward(steps: 2*scale)
+t.left(by: 135)
+t.forward(steps: 1*scale)
+t.right(by: 90)
+t.forward(steps: 3*scale)
+t.left(by: 90)
+t.forward(steps: 2*scale)
+t.left(by: 90)
 
 /*:
  ## Show the Live View
