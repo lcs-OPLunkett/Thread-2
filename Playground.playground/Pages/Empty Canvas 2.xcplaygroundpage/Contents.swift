@@ -17,8 +17,8 @@ import PlaygroundSupport
 import CanvasGraphics
 
 // Set canvas size
-let preferredWidth = 400
-let preferredHeight = 400
+let preferredWidth = 500
+let preferredHeight = 500
 
 // Create canvas
 let canvas = Canvas(width: preferredWidth, height: preferredHeight)
@@ -54,28 +54,78 @@ canvas.drawAxes(withScale: true, by: 20, color: .black)
  */
 let scale = 20
 let diagnol = Int(sqrt(2)*Double(scale))
-
+// Get into postion
 t.drawSelf()
 t.penUp()
 t.left(by: 90)
 t.forward(steps: 1*scale)
 t.right(by: 90)
 t.penDown()
-t.forward(steps: 3*scale)
-t.right(by: 90)
-t.forward(steps: 1*scale)
-t.left(by: 135)
-t.forward(steps: 2*diagnol)
-t.left(by: 90)
-t.forward(steps: 2*diagnol)
-t.left(by: 135)
-t.forward(steps: 1*scale)
-t.right(by: 90)
-t.forward(steps: 3*scale)
-t.left(by: 90)
-t.forward(steps: 2*scale)
-t.left(by: 90)
 
+
+// Put it into a function
+func drawArrow(){
+    
+    t.forward(steps: 3*scale)
+    t.right(by: 90)
+    t.forward(steps: 1*scale)
+    t.left(by: 135)
+    t.forward(steps: 2*diagnol)
+    t.left(by: 90)
+    t.forward(steps: 2*diagnol)
+    t.left(by: 135)
+    t.forward(steps: 1*scale)
+    t.right(by: 90)
+    t.forward(steps: 3*scale)
+    t.left(by: 90)
+    t.forward(steps: 2*scale)
+    t.left(by: 90)
+    
+}
+// make function to move pen back to start
+func moveBackToStart(){
+    t.penUp()
+    t.backward(steps:scale*25)
+    t.left(by: 90)
+    t.forward(steps: scale*4)
+    t.right(by: 90)
+    t.penDown()
+}
+// Draw a row of arrows
+
+for _ in 1 ... 5{
+    drawArrow()
+    t.penUp()
+    t.forward(steps: scale*5)
+    t.penDown()
+}
+
+// move to make next row
+moveBackToStart()
+
+// make next row
+
+for _ in 1 ... 5{
+    drawArrow()
+    t.penUp()
+    t.forward(steps: scale*5)
+    t.penDown()
+}
+
+// move to make next row
+moveBackToStart()
+
+
+//make many rows
+for _ in 1 ... 6{
+    for _ in 1 ... 5{
+        drawArrow()
+        t.penUp()
+        t.forward(steps: scale*5)
+        t.penDown()
+    }
+    moveBackToStart()
+}
 /*:
  ## Show the Live View
  Don't see any results?
