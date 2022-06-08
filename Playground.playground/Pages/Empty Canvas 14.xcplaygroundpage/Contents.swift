@@ -4,8 +4,8 @@
  
  Set the size of your desired canvas by adjusting the constants on lines 7 and 8.
  */
-let preferredWidth = 600
-let preferredHeight = 600
+let preferredWidth = 500
+let preferredHeight = 500
 /*:
  ## Required code
  
@@ -40,8 +40,7 @@ PlaygroundPage.current.liveView = canvas
 
 
 
-// Show a grid
-canvas.drawAxes(withScale: true, by: 20, color: .black)
+
 
 
 
@@ -62,9 +61,10 @@ let diagnol = Int(sqrt(2)*Double(scale))
 t.drawSelf()
 
 t.penUp()
+t.left(by: 180)
 t.forward(steps: 1*scale)
-t.left(by: 90)
-t.forward(steps: 2*scale)
+t.right(by: 90)
+t.forward(steps: 1*scale)
 t.right(by: 90)
 
 // Make Triangle Function
