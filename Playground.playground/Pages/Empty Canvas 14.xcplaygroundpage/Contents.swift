@@ -4,8 +4,8 @@
  
  Set the size of your desired canvas by adjusting the constants on lines 7 and 8.
  */
-let preferredWidth = 400
-let preferredHeight = 400
+let preferredWidth = 600
+let preferredHeight = 600
 /*:
  ## Required code
  
@@ -59,14 +59,15 @@ let scale = 20
 let diagnol = Int(sqrt(2)*Double(scale))
 
 //Get pen into postion
+t.drawSelf()
 
 t.penUp()
 t.forward(steps: 1*scale)
 t.left(by: 90)
-t.forward(steps: 22*scale)
+t.forward(steps: 2*scale)
 t.right(by: 90)
 
-// Draw Trianle
+// Make Triangle Function
 
 func drawTriangle (){
     t.penDown()
@@ -78,223 +79,51 @@ func drawTriangle (){
     t.left(by: 135)
 }
 
-func moveBackToStart1(){
+// Make Row Function
+
+func moveToNextRow () {
     t.penUp()
-    t.backward(steps:scale*20)
-    t.right(by: 90)
-    t.forward(steps: scale*1)
+    t.backward(steps: 28*scale)
     t.left(by: 90)
-    t.penDown()
-}
-
-func moveBackToStart2(){
-    t.penUp()
-    t.backward(steps:scale*26)
+    t.forward(steps: 3*scale)
     t.right(by: 90)
-    t.forward(steps: scale*1)
-    t.left(by: 90)
     t.penDown()
-    
 }
 
-for _ in 1 ... 4{
-    drawTriangle()
-    t.penUp()
-    t.forward(steps: scale*6)
-    t.penDown()
-    
+
+// Draw the First Rows of Triangles
+for _ in 1 ... 8{
+    for _ in 1 ... 5{
+        
+        drawTriangle()
+        t.penUp()
+        t.forward(steps: scale*6)
+        t.penDown()
+        
+    }
+    moveToNextRow()
 }
 
-moveBackToStart1()
+// Get Into postion
+t.penUp()
+t.right(by: 90)
+t.forward(steps: 24*scale)
+t.left(by: 90)
+t.penDown()
 
+// Draw the Second Rows
 
-for _ in 1 ... 4{
-    drawTriangle()
-    t.penUp()
-    t.forward(steps: scale*6)
-    t.penDown()
-    
+for _ in 1 ... 8{
+    for _ in 1 ... 5{
+        drawTriangle()
+        t.penUp()
+        t.forward(steps: scale*6)
+        t.penDown()
+        
+    }
+    moveToNextRow()
 }
 
-moveBackToStart2()
-
-for _ in 1 ... 4{
-    drawTriangle()
-    t.penUp()
-    t.forward(steps: scale*6)
-    t.penDown()
-    
-}
-
-moveBackToStart1()
-
-for _ in 1 ... 4{
-    drawTriangle()
-    t.penUp()
-    t.forward(steps: scale*6)
-    t.penDown()
-    
-}
-
-moveBackToStart2()
-
-for _ in 1 ... 4{
-    drawTriangle()
-    t.penUp()
-    t.forward(steps: scale*6)
-    t.penDown()
-    
-}
-
-moveBackToStart1()
-
-for _ in 1 ... 4{
-    drawTriangle()
-    t.penUp()
-    t.forward(steps: scale*6)
-    t.penDown()
-    
-}
-
-moveBackToStart2()
-
-for _ in 1 ... 4{
-    drawTriangle()
-    t.penUp()
-    t.forward(steps: scale*6)
-    t.penDown()
-    
-}
-
-moveBackToStart1()
-
-for _ in 1 ... 4{
-    drawTriangle()
-    t.penUp()
-    t.forward(steps: scale*6)
-    t.penDown()
-    
-}
-
-moveBackToStart2()
-
-for _ in 1 ... 4{
-    drawTriangle()
-    t.penUp()
-    t.forward(steps: scale*6)
-    t.penDown()
-    
-}
-
-moveBackToStart1()
-
-for _ in 1 ... 4{
-    drawTriangle()
-    t.penUp()
-    t.forward(steps: scale*6)
-    t.penDown()
-    
-}
-
-moveBackToStart2()
-
-for _ in 1 ... 4{
-    drawTriangle()
-    t.penUp()
-    t.forward(steps: scale*6)
-    t.penDown()
-    
-}
-
-moveBackToStart1()
-
-for _ in 1 ... 4{
-    drawTriangle()
-    t.penUp()
-    t.forward(steps: scale*6)
-    t.penDown()
-    
-}
-
-moveBackToStart2()
-
-for _ in 1 ... 4{
-    drawTriangle()
-    t.penUp()
-    t.forward(steps: scale*6)
-    t.penDown()
-    
-}
-
-moveBackToStart1()
-
-for _ in 1 ... 4{
-    drawTriangle()
-    t.penUp()
-    t.forward(steps: scale*6)
-    t.penDown()
-    
-}
-
-moveBackToStart2()
-
-for _ in 1 ... 4{
-    drawTriangle()
-    t.penUp()
-    t.forward(steps: scale*6)
-    t.penDown()
-    
-}
-
-moveBackToStart1()
-
-for _ in 1 ... 4{
-    drawTriangle()
-    t.penUp()
-    t.forward(steps: scale*6)
-    t.penDown()
-    
-}
-
-moveBackToStart2()
-
-for _ in 1 ... 4{
-    drawTriangle()
-    t.penUp()
-    t.forward(steps: scale*6)
-    t.penDown()
-    
-}
-
-moveBackToStart1()
-
-for _ in 1 ... 4{
-    drawTriangle()
-    t.penUp()
-    t.forward(steps: scale*6)
-    t.penDown()
-    
-}
-
-moveBackToStart2()
-
-for _ in 1 ... 4{
-    drawTriangle()
-    t.penUp()
-    t.forward(steps: scale*6)
-    t.penDown()
-    
-}
-
-moveBackToStart1()
-
-for _ in 1 ... 4{
-    drawTriangle()
-    t.penUp()
-    t.forward(steps: scale*6)
-    t.penDown()
-    
-}
 
 canvas.highPerformance = false
 /*:
